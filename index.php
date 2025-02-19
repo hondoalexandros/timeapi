@@ -1,18 +1,6 @@
 <?php 
- header("Access-Control-Allow-Origin: *");
-?>
-<?php 
-$url = 'http://v6.ipv6-test.com/api/myip.php';
+     header("Access-Control-Allow-Origin: *");
 
-$ch = curl_init($url);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$response = curl_exec($ch);
-
-curl_close($ch);
-?>
-<?php 
      $timezone = "Europe/Athens";
      $dateTime = new DateTime("now",new DateTimeZone($timezone));
      $utcdateTime = new DateTime("now",new DateTimeZone("UTC"));
@@ -31,7 +19,6 @@ curl_close($ch);
      $myObj->unixtime = (int)$miliseconds;
      $myObj->abbreviation = $abbreviation;
      $myObj->timezone = $timezone;
-     $myObj->ip = $response;
      //--//
      $myJSON = json_encode($myObj);
      echo $myJSON;
